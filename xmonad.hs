@@ -41,6 +41,7 @@
 ----------------------------------------- IMPORTS (passports at the ready, please) ----------------------------------------
 
 import XMonad
+import XMonad.Config.Gnome
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
@@ -50,7 +51,7 @@ import System.IO
 main = do
     xmproc <- spawnPipe "xmobar"
 
-    xmonad $ defaultConfig
+    xmonad $ gnomeConfig
         { manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
